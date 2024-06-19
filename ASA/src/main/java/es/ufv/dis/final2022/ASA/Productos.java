@@ -1,60 +1,60 @@
 package es.ufv.dis.final2022.ASA;
 
 public class Productos {
-    private String Nombre;
-    private String Categoria;
-    private String EAN13;
-    private int precio;
-
-    public String getNombre() {
-        return Nombre;
-    }
-
-    public void setNombre(String nombre) {
-        Nombre = nombre;
-    }
-
-    public String getCategoria() {
-        return Categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        Categoria = categoria;
-    }
-
-    public String getEAN13() {
-        return EAN13;
-    }
-
-    public void setEAN13(String EAN13) {
-        this.EAN13 = EAN13;
-    }
-
-    public int getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(int precio) {
-        this.precio = precio;
-    }
+    private String nombre;
+    private String categoria;
+    private String ean13;
+    private String precio;
 
     public Productos() {
     }
 
-    public Productos(String nombre, String categoria, String EAN13, int precio) {
-        Nombre = nombre;
-        Categoria = categoria;
-        this.EAN13 = EAN13;
+    public Productos(String nombre, String categoria, String ean13, String precio) {
+        this.nombre = nombre;
+        this.categoria = categoria;
+        this.ean13 = ean13;
+        this.precio = precio;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getEan13() {
+        return ean13;
+    }
+
+    public void setEan13(String ean13) {
+        this.ean13 = ean13;
+    }
+
+    public String getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(String precio) {
         this.precio = precio;
     }
 
     @Override
     public String toString() {
         return "Productos{" +
-                "Nombre='" + Nombre + '\'' +
-                ", Categoria='" + Categoria + '\'' +
-                ", EAN13='" + EAN13 + '\'' +
-                ", precio=" + precio +
+                "nombre='" + nombre + '\'' +
+                ", categoria='" + categoria + '\'' +
+                ", ean13='" + ean13 + '\'' +
+                ", precio='" + precio + '\'' +
                 '}';
     }
 }
