@@ -1,5 +1,6 @@
 package org.vaadin.example;
 
+import com.vaadin.flow.component.grid.Grid;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vaadin.flow.component.Key;
@@ -10,6 +11,8 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
+
+import java.util.List;
 
 /**
  * A sample Vaadin view class.
@@ -35,30 +38,25 @@ public class MainView extends VerticalLayout {
      *            The message service. Automatically injected Spring managed
      *            bean.
      */
-    public MainView(@Autowired GreetService service) {
+    public MainView(@Autowired DataService service) {
 
-        // Use TextField for standard text input
-        TextField textField = new TextField("Your name");
-        textField.addClassName("bordered");
+        Grid<Productos> grid = new Grid<>(Productos.class, false);
+        grid.addColumn(Productos::getNombre).setHeader("Nombre");
+        grid.addColumn(Productos::getCategoria).setHeader("Categoria");
+        grid.addColumn(Productos::getEan13).setHeader("EAN13");
+        grid.addColumn(Productos::getPrecio).setHeader("Precio");
 
-        // Button click listeners can be defined as lambda expressions
-        Button button = new Button("Say hello", e -> {
-            add(new Paragraph(service.greet(textField.getValue())));
-        });
 
-        // Theme variants give you predefined extra styles for components.
-        // Example: Primary button has a more prominent look.
-        button.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+;
 
-        // You can specify keyboard shortcuts for buttons.
-        // Example: Pressing enter in this view clicks the Button.
-        button.addClickShortcut(Key.ENTER);
+        List<Productos> productos = service.getProductos();
+        grid.setItems(productos);
+        grid.setWidth("100%");
+        grid.setWidthFull();
 
-        // Use custom CSS classes to apply styling. This is defined in
-        // styles.css.
-        addClassName("centered-content");
 
-        add(textField, button);
+        add(grid);
+
     }
 
 }
