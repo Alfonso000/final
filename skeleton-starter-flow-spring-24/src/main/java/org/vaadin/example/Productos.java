@@ -1,4 +1,6 @@
-package es.ufv.dis.final2022.ASA;
+package org.vaadin.example;
+
+
 
 public class Productos {
     private String nombre;
@@ -58,3 +60,4 @@ public class Productos {
                 '}';
     }
 }
+

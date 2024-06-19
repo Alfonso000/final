@@ -1,0 +1,26 @@
+[
+  {
+    "nombre": "segudno",
+    "categoria": "fruta",
+    "ean13": "123456",
+    "precio": "12349956"
+  },
+  {
+    "nombre": "tercero",
+    "categoria": "galletas",
+    "ean13": "12456",
+    "precio": "15"
+  },
+  {
+    "nombre": "terceraaaa",
+    "categoria": "galletass",
+    "ean13": "12444446",
+    "precio": "1422"
+  },
+  {
+    "nombre": "tomate",
+    "categoria": "verdura",
+    "ean13": "45678901234",
+    "precio": "20"
+  }
+]
