@@ -1,5 +1,6 @@
 package org.vaadin.example;
 
+import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.grid.Grid;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -56,6 +57,56 @@ public class MainView extends VerticalLayout {
 
 
         add(grid);
+
+
+        // Empieza el formulario
+
+
+
+        TextField nombre = new TextField("Nombre");
+        TextField categoria = new TextField("Categoria");
+        TextField ean13 = new TextField("EAN");
+        TextField precio = new TextField("Precio");
+
+        // Declare pilots and films as String arrays
+
+
+        FormLayout formLayout = new FormLayout();
+        formLayout.add(nombre,categoria,ean13,precio);
+        formLayout.setResponsiveSteps(
+                // Use one column by default
+                new FormLayout.ResponsiveStep("0", 1),
+                // Use two columns, if layout's width exceeds 500px
+                new FormLayout.ResponsiveStep("500", 2));
+// Stretch the username field over 2 columns
+        formLayout.setColspan(nombre, 2);
+
+
+        // EMPIEZA EL BOTON
+
+        Button button = new Button("Guardar Producto",
+                e -> {
+
+
+
+                    Productos newProductos = new Productos(
+                            nombre.getValue(),
+                            categoria.getValue(),
+                            ean13.getValue(),
+                            precio.getValue()
+
+                    );
+                    try {
+                        service.saveData(newProductos);
+                        Notification.show("Producto saved");
+                    } catch (Exception ex) {
+                        Notification.show("Failed to save producto");
+                        ex.printStackTrace();
+                    }
+                });
+
+        formLayout.add(button);
+        add(formLayout);
 
     }
 
