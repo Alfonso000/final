@@ -1,2 +1,4 @@
-package es.ufv.dis.final2022.ASA;public class Controlador {
+package es.ufv.dis.final2022.ASA;
+
+public class Controlador {
 }
